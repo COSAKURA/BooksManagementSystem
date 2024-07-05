@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    width: 900px;
+    background: #4c4c4c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.left {
+    width: 60%;
+    background: url("../img/2.png") no-repeat center center;
+    background-size: cover;
+}
+.right {
+    width: 40%;
+    padding: 40px;
+    background: #f3f9f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.reg-label {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.reg-label label {
+    font-size: 24px;
+    color: #4c4c4c;
+}
+.reg-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reg-form div {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.reg-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+.reg-form input:focus {
+    border-color: #1e9fff;
+}
+.reg-form label {
+    font-size: 12px;
+    color: #ff461f;
+    margin-top: 5px;
+    display: block;
+}
+.reg-sub input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #1e9fff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.reg-sub input:hover {
+    background-color: #007acc;
+}
+.bottom {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background: #4c4c4c;
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 13px;
+}

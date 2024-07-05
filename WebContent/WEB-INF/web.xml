@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+ <!-- 项目名称 -->
+  <display-name>Books</display-name>
+  <!-- 欢迎页面 -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>Login.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 过滤器 -->
+  <filter>
+  	<filter-name>filterEncoding</filter-name>
+  	<filter-class>org.cqipc.books.filter.TestFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>filterEncoding</filter-name>
+  	<url-pattern>/*</url-pattern>    <!-- 在servlet+jsp系统中，针对所有请求使用 / * ，如果在框架系统中针对所有的请求只能写 / -->
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>testAdmin</filter-name>
+  	<filter-class>org.cqipc.books.filter.CheckLogin</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>testAdmin</filter-name>
+  	<url-pattern>/UserLoginServlet</url-pattern>
+  </filter-mapping>
+  
+   
+</web-app>

@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f3f3;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url("../fonts/Cakecafe.ttf");
+}
+
+.container {
+    width: 400px;
+    height: 500px;
+    margin: 200px auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    border-top: 3px solid pink;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 30px 60px -12px;
+    backdrop-filter: blur(12px);
+}
+
+.container_text {
+    width: 350px;
+    height: 60px;
+    position: relative;
+    top: 30px;
+    padding-left: 25px;
+    margin-left: 25px;
+    text-shadow: 10px 10px 10px pink;
+    border-bottom: 1px solid #f3f3f3;
+
+}
+
+.Login_text {
+    text-align: center;
+    font-size: 32px;
+    font-family: icomoon, serif;
+
+}
+
+.Login-form {
+    width: 350px;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    position: relative;
+    top: 80px;
+
+}
+
+label {
+    font-size: 12px;
+    font-family: icomoon, serif;
+}
+
+.Login-form input {
+    width: 340px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 15px;
+    margin-top: 5px;
+    border-bottom: 1px solid lightpink;
+}
+
+.username {
+    margin-top: -70px;
+    margin-bottom: 30px;
+
+}
+
+input[type="submit"] {
+    width: 340px;
+    height: 40px;
+    margin-top: 40px;
+    background-color: rgb(82,168,255);
+    cursor: pointer;
+    font-size: 20px;
+    border-bottom: none;
+    font-family: icomoon, serif;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(138, 208, 111);
+    color: #fff;
+    border-bottom: none;
+}
+
+.register_box {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.log-item {
+    text-align: center;
+    color: pink;
+    font-family: icomoon, serif;
+    margin-top: 20px;
+    text-shadow: 10px 10px 10px pink;
+}
+
+#register {
+    text-decoration: none;
+    color: #00aced;
+}

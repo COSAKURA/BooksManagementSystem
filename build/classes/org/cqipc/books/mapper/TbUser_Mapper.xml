@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cqipc.books.dao.Tb_UserDao">
+    <select id="userLogin" resultType="Tb_User">
+        select *
+        from tb_user
+        where user = #{user}
+          and passwd = #{passwd}
+    </select>
+    <insert id="addUsers">
+        insert into tb_user
+        values (null, #{user}, #{passwd})
+    </insert>
+    <update id="modifyPassword">
+        update tb_user
+        set passwd=#{passwd}
+        where id = #{id}
+    </update>
+    <update id="modifyPasswordByRoot">
+        update tb_user
+        set passwd=#{passwd}
+        where user = #{username}
+    </update>
+    <select id="selectUserAll" resultType="Tb_User">
+        select *
+        from tb_user
+    </select>
+    <delete id="removeUser">
+        delete
+        from tb_user
+        where id = #{id}
+    </delete>
+    <select id="findUserNames" resultType="int">
+        select count(*)
+        from tb_user
+        where user = #{username}
+    </select>
+    <select id="findUserByUsername" resultType="org.cqipc.books.bean.Tb_User">
+        select * from tb_user where user = #{username}
+    </select>
+</mapper>

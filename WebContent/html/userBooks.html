@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="GBK">
+		<title>借阅管理</title>
+		<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="../layui/layui.js"></script>
+		<link rel="stylesheet" href="../layui/css/layui.css"  />
+		<script type="text/javascript" src="../js/admin/userBooks.js"></script>
+		
+		<!-- Scripts -->
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+
+<script src="assets/js/lib/chartist/chartist.min.js"></script>
+<script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
+<script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
+<script src="assets/weather/js/weather-init.js"></script>
+<script src="assets/js/lib/moment/moment.js"></script>
+<script src="assets/calendar/fullcalendar.min.js"></script>
+<script src="assets/calendar/fullcalendar-init.js"></script>
+	    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+	    <link rel="stylesheet" href="assets/css/style.css">
+	    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+		<link rel="stylesheet" href="assets/css/normalize.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+<link href="assets/weather/css/weather-icons.css" rel="stylesheet" />
+<link href="assets/calendar/fullcalendar.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link href="assets/css/charts/chartist.min.css" rel="stylesheet">
+<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	<center>
+	  用户：
+	  <select id="uid" class="form-control" style="width: 140px;display:inline;">
+           <option value="-1">请选择用户</option>
+       </select>
+       书籍：
+       <select id="bid" class="form-control" style="width: 140px;display: inline;">
+           <option value="-1">请选择书籍</option>
+       </select>
+       状态：
+       <select id="stat" class="form-control" style="width: 140px;display: inline;">
+           <option value="-1">请选择状态</option>
+           <option value="0">已归还</option>
+           <option value="1">已超时</option>
+		   <option value="2">未归还</option>
+       </select>
+      <br />
+       <br />
+       开始：<input type="date"  class="sang_Calender" id="dateBegin"  />
+       结束：<input type="date"  class="sang_Calender" id="dateEnd"  />
+       <button class="btn btn-primary"  id="search" onclick="search()">
+          <i class="fa fa-search"></i> Search
+       </button>
+        </center>
+		<table id="mytabs" class="layui-table" style="height: 100%;width: 100%;">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>用户</td>
+					<td>书籍</td>
+					<td>开始时间</td>
+					<td>结束时间</td>
+					<td>状态</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody id="tbs">
+				
+			</tbody>
+		</table>  
+		<script type="text/javascript" src="../js/datetime.js"></script>
+	</body>
+</html>

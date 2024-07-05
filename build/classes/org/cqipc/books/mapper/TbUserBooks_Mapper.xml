@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.cqipc.books.dao.Tb_User_BookDao">
+    <insert id="addUserBook">
+        insert into tb_user_book
+        values (null, #{userId.id}, #{bookId.id}, #{begin_time}, #{end_time}, #{stat})
+    </insert>
+    <delete id="removeUserBooks">
+        delete
+        from tb_user_book
+        where id = #{id}
+    </delete>
+    <update id="modifyStat">
+        update tb_user_book
+        set stat=0
+        where id = #{id}
+    </update>
+    <select id="findUserBookByUid" resultType="Tb_User_Book">
+        select tub.*,
+               tu.id              as "userId.id",
+               tu.user            as "userId.user",
+               tu.passwd          as "userId.passwd",
+               tb.id              as "bookId.id",
+               tb.ISBN            as "bookId.ISBN",
+               tb.book_name       as "bookId.book_name",
+               tb.book_price      as "bookId.bookId.book_price",
+               tb.book_author     as "bookId.book_author",
+               tb.published_house as "bookId.published_house",
+               tbt.id             as "bookCategory.id",
+               tbt.type           as "bookCategory.type",
+               tbt.type_max_num   as "bookCategory.type_max_num"
+        from tb_user_book tub,
+             tb_user tu,
+             tb_books tb,
+             Tb_Books_Type tbt
+        where tub.user_id = tu.id
+          and tub.book_id = tb.id
+          and tbt.id = tb.book_category
+          and tub.user_id = #{uid}
+        limit #{pageCount},#{pageSize}
+    </select>
+    <select id="findUserBookByUidCount" resultType="int">
+        select count(*)
+        from tb_user_book
+        where user_id = #{uid}
+    </select>
+    <select id="findUserBookByBid" resultType="Tb_User_Book">
+        select tub.*,
+               tu.id              as "userId.id",
+               tu.user            as "userId.user",
+               tu.passwd          as "userId.passwd",
+               tu.id              as "bookId.id",
+               tb.ISBN            as "bookId.ISBN",
+               tb.book_name       as "bookId.book_name",
+               tb.book_price      as "bookId.book_price",
+               tb.book_author     as "bookId.book_author",
+               tb.published_house as "bookId.published_house",
+               tbt.id             as "bookCategory.id",
+               tbt.type           as "bookCategory.type",
+               tbt.type_max_num   as "bookCategory.type_max_num"
+        from tb_user_book tub,
+             tb_user tu,
+             tb_books tb,
+             Tb_Books_Type tbt
+        where tub.user_id = tu.id
+          and tub.book_id = tb.id
+          and tbt.id = tb.book_category
+          and tub.book_id = #{bid}
+        limit#{pageCount},#{pageSize}
+    </select>
+    <select id="findUserBookByBidCount" resultType="int">
+        select count(*)
+        from tb_user_book
+        where book_id = #{bid}
+    </select>
+    <select id="findAllUserBook" resultType="Tb_User_Book">
+        select tub.*,
+               tu.id              as "userId.id",
+               tu.user            as "userId.user",
+               tu.passwd          as "userId.passwd",
+               tu.id              as "bookId.id",
+               tb.ISBN            as "bookId.ISBN",
+               tb.book_name       as "bookId.book_name",
+               tb.book_price      as "bookId.book_price",
+               tb.book_author     as "bookId.book_author",
+               tb.published_house as "bookId.published_house",
+               tbt.id             as "bookCategory.id",
+               tbt.type           as "bookCategory.type",
+               tbt.type_max_num   as "bookCategory.type_max_num"
+        from tb_user_book tub,
+             tb_user tu,
+             tb_books tb,
+             Tb_Books_Type tbt
+        where tub.user_id = tu.id
+          and tub.book_id = tb.id
+          and tbt.id = tb.book_category
+        limit#{pageCount},#{pageSize}
+    </select>
+    <select id="findAllUserBookCount" resultType="int">
+        select count(*)
+        from tb_user_book
+    </select>
+    <select id="findBookUseByBid" resultType="int">
+        select count(*)
+        from tb_user_book
+        where book_id = #{bid}
+          and stat = 1;
+    </select>
+
+    <select id="searchUserBooksPage" resultType="Tb_User_Book">
+        SELECT tub.*, tu.id AS "userId.id", tu.user AS "userId.user", tu.passwd AS "userId.passwd", tu.id AS "bookId.id"
+        , tb.ISBN AS "bookId.ISBN", tb.book_name AS "bookId.book_name", tb.book_price AS "bookId.book_price", tb.book_author AS "bookId.book_author", tb.published_house AS "bookId.published_house"
+        , tbt.id AS "bookCategory.id", tbt.type AS "bookCategory.type", tbt.type_max_num AS "bookCategory.type_max_num"
+        FROM tb_user_book tub, tb_user tu, tb_books tb, books.tb_books_type tbt
+        WHERE tub.user_id = tu.id
+        AND tub.book_id = tb.id
+        AND tbt.id = tb.book_category
+        <if test="uid!=-1">
+            and tub.user_id=#{uid}
+        </if>
+        <if test="bid!=-1">
+            and tub.book_id=#{bid}
+        </if>
+        <if test="btime!=''and btime!=null and etime!=''and etime!=null">
+            and tub.begin_time = #{btime} and tub.begin_time = #{etime}
+        </if>
+        <if test="stat!=-1">
+            and tub.stat=#{stat}
+        </if>
+        <if test="endTime!=''and endTime!=null">
+            and tub.begin_time= #{endTime}
+        </if>
+        order by tub.begin_time desc
+        limit #{pageCount},#{pageSize}
+    </select>
+    <select id="searchUserBooksPageount" resultType="int">
+        select count(*)from tb_user_book
+        <where>
+            <if test="uid!=-1">
+                and user_id=#{uid}
+            </if>
+            <if test="bid!=-1">
+                and book_id=#{bid}
+            </if>
+            <if test="btime!=''and btime!=null and etime!=''and etime!=null">
+                and begin_time = #{btime} and begin_time = #{etime}
+            </if>
+            <if test="endTime!=''and endTime!=null">
+                and end_time= #{endTime}
+            </if>
+            <if test="stat!=-1">
+                and stat=#{stat}
+            </if>
+        </where>
+    </select>
+    <select id="findLendBookFlag" resultType="int">
+        select count(*)
+        from tb_user_book
+        where book_id = #{bid}
+          and stat = 1
+    </select>
+</mapper>

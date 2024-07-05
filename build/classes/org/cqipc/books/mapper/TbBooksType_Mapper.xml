@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cqipc.books.dao.Tb_Books_TypeDao">
+    <insert id="addBookType">
+        insert into tb_books_type
+        values (null, #{type}, #{type_max_num})
+    </insert>
+    <update id="modifyBookType">
+        update tb_books_type
+        set type=#{type},
+            type_max_num=#{type_max_num}
+        where id = #{id}
+    </update>
+    <select id="findBookTypeById" resultType="Tb_Books_Type">
+        select *
+        from tb_books type
+        where id = #{id}
+    </select>
+    <select id="findAllBookType" resultType="Tb_Books_Type">
+        select *
+        from tb_books_type
+    </select>
+    <select id="findBookTypePageCount" resultType="int">
+        select count(*)
+        from tb_books_type
+    </select>
+    <select id="findBookTypePage" resultType="Tb_Books_Type">
+
+        select *
+        from tb_books_type
+        limit #{pageCount},#{pageSize}
+    </select>
+</mapper>
+

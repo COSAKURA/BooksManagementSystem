@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="GBK">
+		<title>书籍管理</title>
+		<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="../layui/layui.js"></script>
+		<link rel="stylesheet" href="../layui/css/layui.css"  />
+		<script type="text/javascript" src="../js/admin/books.js"></script>
+
+		<!-- Scripts -->
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+
+<script src="assets/js/lib/chartist/chartist.min.js"></script>
+<script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
+<script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
+<script src="assets/weather/js/weather-init.js"></script>
+<script src="assets/js/lib/moment/moment.js"></script>
+<script src="assets/calendar/fullcalendar.min.js"></script>
+<script src="assets/calendar/fullcalendar-init.js"></script>
+	    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+	    <link rel="stylesheet" href="assets/css/style.css">
+	     <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<link rel="stylesheet" href="assets/css/normalize.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+<link href="assets/weather/css/weather-icons.css" rel="stylesheet" />
+<link href="assets/calendar/fullcalendar.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link href="assets/css/charts/chartist.min.css" rel="stylesheet">
+<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<button type="button" data-toggle="modal" data-target="#myModal"
+		class="btn btn-outline-primary btn-lg btn-block" id="btn_add">新增书籍</button>
+		<table id="mytab" class="layui-table" style="height: 100%;width: 100%;">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>ISBN</td>
+					<td>书籍名称</td>
+					<td>书籍价格</td>
+					<td>作者</td>
+					<td>出版社</td>
+					<td>所属类型</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody id="tb">
+
+			</tbody>
+		</table>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增/修改书籍</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txt_departmentname">图书编码</label>
+                        <input type="hidden" id="bid" />
+                        <input type="text" name="isbn" class="form-control" id="isbn" placeholder="请填写图书编码">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">书籍名称</label>
+                        <input type="text" name="book_name" class="form-control" id="book_name"
+                        placeholder="请填写书籍名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">书籍价格</label>
+                        <input type="text" name="book_price" class="form-control" id="book_price"
+                        placeholder="请填写书籍价格">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">书籍作者</label>
+                        <input type="text" name="book_author" class="form-control" id="book_author"
+                        placeholder="请填写书籍作者">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">出版社</label>
+                        <input type="text" name="published_house" class="form-control" id="published_house"
+                        placeholder="请填写书籍出版社">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">所属类型</label>
+                        <select id="bookCategory" class="form-control">
+                        	<option value="-1">--请选择类型--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="GBK">
+		<title>书籍类型管理</title>
+		<script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="../layui/layui.js"></script>
+		<link rel="stylesheet" href="../layui/css/layui.css"  />
+		<script type="text/javascript" src="../js/admin/bookType.js"></script>
+		
+		<!-- Scripts -->
+    <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+
+<script src="assets/js/lib/chartist/chartist.min.js"></script>
+<script src="assets/js/lib/chartist/chartist-plugin-legend.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.pie.js"></script>
+<script src="assets/js/lib/flot-chart/jquery.flot.spline.js"></script>
+<script src="assets/weather/js/jquery.simpleWeather.min.js"></script>
+<script src="assets/weather/js/weather-init.js"></script>
+<script src="assets/js/lib/moment/moment.js"></script>
+<script src="assets/calendar/fullcalendar.min.js"></script>
+<script src="assets/calendar/fullcalendar-init.js"></script>
+	    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+	    <link rel="stylesheet" href="assets/css/style.css">
+	    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+		<link rel="stylesheet" href="assets/css/normalize.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/themify-icons.css">
+<link rel="stylesheet" href="assets/css/pe-icon-7-filled.css">
+<link href="assets/weather/css/weather-icons.css" rel="stylesheet" />
+<link href="assets/calendar/fullcalendar.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css">
+<link href="assets/css/charts/chartist.min.css" rel="stylesheet">
+<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">		
+	</head>
+	<body>
+		<button type="button" data-toggle="modal" data-target="#myModal" 
+		class="btn btn-outline-primary btn-lg btn-block" id="btn_add">新增书籍类型</button>
+		<table class="layui-hide" id="demo"></table>
+		<table id="mytab" class="layui-table">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>类型名称</td>
+					<td>最大数量</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody id="tb">
+				
+			</tbody>
+		</table>  
+		
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="txt_departmentname">类型名称</label>
+                        <input type="hidden" id="tid" />
+                        <input type="text" name="type" class="form-control" id="type" placeholder="图书类型名称">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt_parentdepartment">类型数量</label>
+                        <input type="text" name="type_max_num" class="form-control" 
+                        id="type_max_num" placeholder="图书类型数量">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	</body>
+</html>
